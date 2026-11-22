@@ -1,20 +1,10 @@
 
-<<<<<<< HEAD
 # Function to calculate average marks
 def average(marks):
     return sum(marks) / len(marks)
 
 
 # Function to calculate grade
-=======
-import sys
-
-# Calculate average
-def average(marks):
-    return sum(marks) / len(marks)
-
-# Calculate grade
->>>>>>> 1292a3c38d104891db1cb4aeea2b5e118d80f3aa
 def grade(avg):
     if avg >= 90:
         return "A"
@@ -27,27 +17,13 @@ def grade(avg):
     else:
         return "F"
 
-<<<<<<< HEAD
 
 # Function to check pass or fail
-=======
-# Check pass or fail
->>>>>>> 1292a3c38d104891db1cb4aeea2b5e118d80f3aa
 def is_pass(marks):
-    return all(mark >= 35 for mark in marks)
-
-# Display remark
-def remark(avg):
-    if avg >= 90:
-        return "Excellent!"
-    elif avg >= 75:
-        return "Very Good!"
-    elif avg >= 60:
-        return "Good!"
-    elif avg >= 35:
-        return "Keep practicing!"
-    else:
-        return "Needs improvement!"
+    for mark in marks:
+        if mark < 35:
+            return False
+    return True
 
 
 # Function to display remarks
@@ -66,7 +42,6 @@ def remark(avg):
 
 # Main program
 if __name__ == "__main__":
-<<<<<<< HEAD
 
     print("STUDENT GRADE CALCULATOR")
 
@@ -91,20 +66,3 @@ if __name__ == "__main__":
         print("Result: PASS")
     else:
         print("Result: FAIL")
-=======
-    if len(sys.argv) != 5:
-        print("Usage: python main.py Name Mark1 Mark2 Mark3")
-        sys.exit(1)
-
-    name = sys.argv[1]
-    marks = [int(x) for x in sys.argv[2:5]]
-
-    avg = average(marks)
-
-    print("Student Name:", name)
-    print("Marks:", marks)
-    print("Average:", avg)
-    print("Grade:", grade(avg))
-    print("Result:", "PASS" if is_pass(marks) else "FAIL")
-    print("Remark:", remark(avg))
->>>>>>> 1292a3c38d104891db1cb4aeea2b5e118d80f3aa
