@@ -1,8 +1,11 @@
-# Function to calculate average marks
+
+import sys
+
+# Calculate average
 def average(marks):
     return sum(marks) / len(marks)
 
-# Function to calculate grade
+# Calculate grade
 def grade(avg):
     if avg >= 90:
         return "A"
@@ -15,34 +18,37 @@ def grade(avg):
     else:
         return "F"
 
-# Function to check pass or fail
+# Check pass or fail
 def is_pass(marks):
-    for mark in marks:
-        if mark < 35:
-            return False
-    return True
+    return all(mark >= 35 for mark in marks)
+
+# Display remark
+def remark(avg):
+    if avg >= 90:
+        return "Excellent!"
+    elif avg >= 75:
+        return "Very Good!"
+    elif avg >= 60:
+        return "Good!"
+    elif avg >= 35:
+        return "Keep practicing!"
+    else:
+        return "Needs improvement!"
 
 # Main program
-print("STUDENT GRADE CALCULATOR")
+if __name__ == "__main__":
+    if len(sys.argv) != 5:
+        print("Usage: python main.py Name Mark1 Mark2 Mark3")
+        sys.exit(1)
 
-name = input("Enter student name: ")
+    name = sys.argv[1]
+    marks = [int(x) for x in sys.argv[2:5]]
 
-marks = []
+    avg = average(marks)
 
-for i in range(3):
-    mark = int(input("Enter marks for subject " + str(i + 1) + ": "))
-    marks.append(mark)
-
-avg = average(marks)
-student_grade = grade(avg)
-
-print("\n----- STUDENT RESULT -----")
-print("Student Name:", name)
-print("Marks:", marks)
-print("Average Marks:", avg)
-print("Grade:", student_grade)
-
-if is_pass(marks):
-    print("Result: PASS")
-else:
-    print("Result: FAIL")
+    print("Student Name:", name)
+    print("Marks:", marks)
+    print("Average:", avg)
+    print("Grade:", grade(avg))
+    print("Result:", "PASS" if is_pass(marks) else "FAIL")
+    print("Remark:", remark(avg))
