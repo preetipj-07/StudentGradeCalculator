@@ -22,6 +22,19 @@ def is_pass(marks):
             return False
     return True
 
+# Function to display remarks
+def remark(avg):
+    if avg >= 90:
+        return "Excellent!"
+    elif avg >= 75:
+        return "Very Good!"
+    elif avg >= 60:
+        return "Good!"
+    elif avg >= 35:
+        return "Keep practicing!"
+    else:
+        return "Needs improvement!"
+
 # Main program
 print("STUDENT GRADE CALCULATOR")
 
@@ -35,6 +48,7 @@ for i in range(3):
 
 avg = average(marks)
 student_grade = grade(avg)
+print("Remark:", remark(avg))
 
 print("\n----- STUDENT RESULT -----")
 print("Student Name:", name)
