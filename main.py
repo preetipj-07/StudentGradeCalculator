@@ -7,12 +7,14 @@ def average(marks):
 # Function to calculate grade
 def grade(avg):
     if avg >= 90:
+        return "S"
+    elif avg >= 80:
         return "A"
-    elif avg >= 75:
+    elif avg >= 65:
         return "B"
-    elif avg >= 60:
+    elif avg >= 50:
         return "C"
-    elif avg >= 35:
+    elif avg >= 40:
         return "D"
     else:
         return "F"
