@@ -1,26 +1,22 @@
-
-from main import average, grade, is_pass, remark
+from main import average, grade
 
 def test_average():
-    assert average([80, 90, 70]) == 80
+    assert average([90, 80, 70]) == 80
+
+def test_grade_S():
+    assert grade(95) == "S"
 
 def test_grade_A():
-    assert grade(95) == "A"
+    assert grade(85) == "A"
 
 def test_grade_B():
-    assert grade(80) == "B"
+    assert grade(70) == "B"
 
-def test_pass():
-    assert is_pass([80, 70, 90]) == True
+def test_grade_C():
+    assert grade(55) == "C"
 
-def test_fail():
-    assert is_pass([80, 20, 90]) == False
+def test_grade_D():
+    assert grade(45) == "D"
 
-def test_remark():
-    assert remark(95) == "Excellent!"
-
-def test_remark_good():
-    assert remark(65) == "Good!"
-
-def test_remark_fail():
-    assert remark(20) == "Needs improvement!"
+def test_grade_F():
+    assert grade(30) == "F"
